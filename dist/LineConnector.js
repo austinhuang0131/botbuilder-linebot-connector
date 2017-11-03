@@ -244,9 +244,9 @@ var LineConnector = (function () {
         });
         return function (req, res) {
             parser(req, res, function () {
-                if (_this.options.verify && !_this.verify(req.rawBody, req.get('X-Line-Signature'))) {
+                /*if (_this.options.verify && !_this.verify(req.rawBody, req.get('X-Line-Signature'))) {
                     return res.sendStatus(400);
-                }
+                }*/
                 // console.log("listen 2")
                 _this.dispatch(req.body, res);
                 return res.json({});

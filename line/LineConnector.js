@@ -322,14 +322,14 @@ var LineConnector = /** @class */ (function () {
         return [message];
     };
     LineConnector.prototype.post = function (path, body) {
-        // console.log(path, body)
-        // let r;
-        // try {
-        //     r = fetch(this.endpoint + path, { method: 'POST', headers: this.headers, body: JSON.stringify(body) });
-        // } catch (er) {
-        //     console.log("er",er)
-        // }
-        return fetch(this.endpoint + path, { method: 'POST', headers: this.headers, body: JSON.stringify(body) });
+        console.log(path, body)
+        let r;
+        try {
+            r = fetch(this.endpoint + path, { method: 'POST', headers: this.headers, body: JSON.stringify(body) });
+        } catch (er) {
+            console.log("er",er)
+        }
+        // return fetch(this.endpoint + path, { method: 'POST', headers: this.headers, body: JSON.stringify(body) });
     };
     LineConnector.prototype.get = function (path) {
         // console.log("get", path);
@@ -346,7 +346,6 @@ var LineConnector = /** @class */ (function () {
                             replyToken: message[0].replyToken,
                             messages: m
                         };
-                        console.log(m);
                         return [4 /*yield*/, this.post('/message/reply', body).then()];
                     case 1:
                         res = _a.sent();
@@ -715,7 +714,7 @@ var LineConnector = /** @class */ (function () {
     LineConnector.prototype.send = function (messages, done) {
         // let ts = [];
         var _this = this;
-        console.log("send", this);
+        // console.log("send", this);
         messages.map(function (e) {
             // console.log("e", e)
             if (_this.hasPushApi) {

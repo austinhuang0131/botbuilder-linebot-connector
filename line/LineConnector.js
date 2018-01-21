@@ -307,7 +307,7 @@ var LineConnector = /** @class */ (function () {
     };
     ;
     LineConnector.createMessages = function (message) {
-        console.log("cm", message);
+        // console.log("cm", message);
         if (typeof message === 'string') {
             return [{ type: 'text', text: message }];
         }
@@ -341,6 +341,7 @@ var LineConnector = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        console.log("reply", message)
                         m = LineConnector.createMessages(message);
                         body = {
                             replyToken: message[0].replyToken || replyToken,

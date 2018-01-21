@@ -731,7 +731,7 @@ var LineConnector = /** @class */ (function () {
                     _this.event_cache.push(t);
                 }
                 if (_this.event_cache.length === 5) {
-                    _this.reply(_this.replyToken, _this.event_cache);
+                    _this.reply(_this.replyToken || messages[0].replyToken, _this.event_cache);
                     _this.replyToken = null;
                     _this.event_cache = [];
                 }

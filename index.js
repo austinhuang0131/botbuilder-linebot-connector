@@ -1,1 +1,2 @@
-module.exports = require('./dist/LineConnector');
+module.exports = require('./line/LineConnector.js');
+// module.exports = require('./lib');

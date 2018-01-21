@@ -307,7 +307,7 @@ var LineConnector = /** @class */ (function () {
     };
     ;
     LineConnector.createMessages = function (message) {
-        console.log(message);
+        console.log("cm", message);
         if (typeof message === 'string') {
             return [{ type: 'text', text: message }];
         }

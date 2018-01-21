@@ -679,11 +679,19 @@ var LineConnector = /** @class */ (function () {
                                     return new Error("need image and media");
                                 }
                             case 'image/*':
-                                if (a.content.image && a.content.image.url.indexOf("https") > -1) {
+                                if ( a.contentUrl.indexOf("https") > -1) {
                                     return {
                                         "type": "image",
-                                        "originalContentUrl": a.content.image.url,
-                                        "previewImageUrl": a.content.image.url
+                                        "originalContentUrl": a.contentUrl,
+                                        "previewImageUrl": a.contentUrl
+                                    };
+                                }
+                            case 'video/*':
+                                if ( a.contentUrl.indexOf("https") > -1) {
+                                    return {
+                                        "type": "video",
+                                        "originalContentUrl": a.contentUrl,
+                                        "previewImageUrl": a.contentUrl
                                     };
                                 }
                             case 'application/vnd.microsoft.card.hero':

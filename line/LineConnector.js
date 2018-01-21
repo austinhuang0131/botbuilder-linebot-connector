@@ -343,9 +343,10 @@ var LineConnector = /** @class */ (function () {
                     case 0:
                         m = LineConnector.createMessages(message);
                         body = {
-                            replyToken: message[0].replyToken,
+                            replyToken: message[0].replyToken || replyToken,
                             messages: m
                         };
+                        console.log("reply", body);
                         return [4 /*yield*/, this.post('/message/reply', body).then()];
                     case 1:
                         res = _a.sent();

@@ -715,6 +715,7 @@ var LineConnector = /** @class */ (function () {
     LineConnector.prototype.send = function (messages, done) {
         // let ts = [];
         var _this = this;
+        console.log("send", this);
         messages.map(function (e) {
             // console.log("e", e)
             if (_this.hasPushApi) {

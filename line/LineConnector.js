@@ -169,11 +169,11 @@ var LineConnector = /** @class */ (function () {
                         m = {
                             timestamp: new Date(parseInt(event.timestamp)).toISOString(),
                             source: "line",
-                            channelId: "directline",
                             address: {
                                 conversation: {},
                                 channel: {},
-                                user: {}
+                                user: {},
+                                channelId: "directline"
                             }
                         };
                         switch (event.source.type) {

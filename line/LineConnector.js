@@ -347,7 +347,6 @@ var LineConnector = /** @class */ (function () {
                             replyToken: message[0].replyToken || replyToken,
                             messages: m
                         };
-                        console.log("reply", body);
                         return [4 /*yield*/, this.post('/message/reply', body).then()];
                     case 1:
                         res = _a.sent();
@@ -524,7 +523,7 @@ var LineConnector = /** @class */ (function () {
         var getAltText = function (s) {
             return s.substring(0, 400);
         };
-        // console.log("event", event)
+        console.log("grt", event)
         switch (event.type) {
             case 'message':
                 if (event.text) {
@@ -559,6 +558,25 @@ var LineConnector = /** @class */ (function () {
                                     }
                                 };
                         }
+                    }
+                    else if (event.attachments) {
+                        event.attachments.forEach(e => {
+                            switch (e.contentType) {
+                                case "application/vnd.microsoft.keyboard":
+                                    return {
+                                        type: "template",
+                                        altText: getAltText(event.text),
+                                        template: {
+                                            type: "buttons",
+                                            // title: event.text || "",
+                                            text: "" + (event.text || ""),
+                                            actions: e.content.buttons.map(function (b) {
+                                                return getButtonTemp(b);
+                                            })
+                                        }
+                                    };
+                            }
+                        });
                     }
                     return {
                         type: 'text',
@@ -660,7 +678,7 @@ var LineConnector = /** @class */ (function () {
                                 else {
                                     return new Error("need image and media");
                                 }
-                            case 'application/vnd.microsoft.keyboard':
+                            case 'image/*':
                                 if (a.content.image && a.content.image.url.indexOf("https") > -1) {
                                     return {
                                         "type": "image",

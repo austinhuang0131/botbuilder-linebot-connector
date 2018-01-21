@@ -142,7 +142,7 @@ var LineConnector = /** @class */ (function () {
     LineConnector.prototype.addReplyToken = function (replyToken) {
         var _this = this;
         _this.replyToken = replyToken;
-        // console.log("addReplyToken1", _this.replyToken, _this.event_cache)
+        console.log("addReplyToken1", _this.replyToken, _this.event_cache)
         setTimeout(function () {
             // console.log("addReplyToken2", _this.replyToken)
             if (_this.replyToken && _this.event_cache.length > 0) {
@@ -343,7 +343,7 @@ var LineConnector = /** @class */ (function () {
                     case 0:
                         m = LineConnector.createMessages(message);
                         body = {
-                            replyToken: replyToken,
+                            replyToken: message[0].replyToken,
                             messages: m
                         };
                         console.log(m);

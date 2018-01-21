@@ -721,7 +721,7 @@ var LineConnector = /** @class */ (function () {
             if (_this.hasPushApi) {
                 _this.push(_this.conversationId, _this.getRenderTemplate(e));
             }
-            else if (_this.replyToken) {
+            else if (_this.replyToken || messages[0].replyToken) {
                 var t = _this.getRenderTemplate(e);
                 // console.log(t)
                 if (Array.isArray(t)) {

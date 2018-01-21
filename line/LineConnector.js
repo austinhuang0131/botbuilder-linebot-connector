@@ -150,7 +150,7 @@ var LineConnector = /** @class */ (function () {
             }
             _this.replyToken = null;
             _this.event_cache = [];
-        }, 1000);
+        }, 3000);
     };
     LineConnector.prototype.dispatch = function (body, res) {
         var _this = this;

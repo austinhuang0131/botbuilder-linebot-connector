@@ -109,9 +109,8 @@ var LineConnector = /** @class */ (function () {
             this.hasPushApi = this.options.hasPushApi;
         }
         this.headers = {
-            Accept: 'application/json',
             'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + this.options.channelAccessToken
+            'Authorization': 'Bearer ' + this.options.channelAccessToken
         };
         this.endpoint = 'https://api.line.me/v2/bot';
         this.botId = options.channelId;
@@ -345,6 +344,7 @@ var LineConnector = /** @class */ (function () {
                             replyToken: replyToken,
                             messages: m
                         };
+                        console.log(m);
                         return [4 /*yield*/, this.post('/message/reply', body).then()];
                     case 1:
                         res = _a.sent();

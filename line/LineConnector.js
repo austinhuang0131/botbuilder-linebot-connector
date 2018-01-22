@@ -164,7 +164,7 @@ var LineConnector = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log("event", event);
+                        // console.log("event", event);
                         _this.addReplyToken(event.replyToken);
                         m = {
                             timestamp: new Date(parseInt(event.timestamp)).toISOString(),
@@ -523,7 +523,6 @@ var LineConnector = /** @class */ (function () {
         var getAltText = function (s) {
             return s.substring(0, 400);
         };
-        console.log("grt", event)
         switch (event.type) {
             case 'message':
                 if (event.text) {
@@ -752,7 +751,7 @@ var LineConnector = /** @class */ (function () {
             }
             else if (_this.replyToken || messages[0].replyToken) {
                 var t = _this.getRenderTemplate(e);
-                // console.log(t)
+                console.log("send", t)
                 if (Array.isArray(t)) {
                     _this.event_cache = _this.event_cache.concat(t);
                 }

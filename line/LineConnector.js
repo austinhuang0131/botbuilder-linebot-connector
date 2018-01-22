@@ -578,10 +578,12 @@ var LineConnector = /** @class */ (function () {
                             }
                         });
                     }
-                    return {
-                        type: 'text',
-                        text: event.text
-                    };
+                    else {
+                        return {
+                            type: 'text',
+                            text: event.text
+                        };
+                    }
                 }
                 else if (event.attachments) {
                     if (event.attachmentLayout === 'carousel') {

@@ -621,7 +621,7 @@ var LineConnector = /** @class */ (function () {
                                         columns: event.attachments.map(function (a) {
                                             var c = {
                                                 title: a.content.title || "",
-                                                text: "" + (a.content.title || "") + (a.content.subtitle || ""),
+                                                text: a.content.text,
                                                 actions: a.content.buttons.map(function (b) {
                                                     return getButtonTemp(b);
                                                 })

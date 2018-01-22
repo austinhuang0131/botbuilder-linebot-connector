@@ -740,7 +740,7 @@ var LineConnector = /** @class */ (function () {
     LineConnector.prototype.send = function (messages, done) {
         // let ts = [];
         var _this = this;
-        // console.log("send", this);
+        console.log("send", this);
         messages.map(function (e) {
             // console.log("e", e)
             if (_this.hasPushApi) {
@@ -748,7 +748,7 @@ var LineConnector = /** @class */ (function () {
             }
             else if (_this.replyToken || messages[0].replyToken) {
                 var t = _this.getRenderTemplate(e);
-                console.log("send", t)
+                // console.log("send", t)
                 if (Array.isArray(t)) {
                     _this.event_cache = _this.event_cache.concat(t);
                 }

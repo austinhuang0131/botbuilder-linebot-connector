@@ -593,7 +593,7 @@ var LineConnector = /** @class */ (function () {
                         }
                         if (event.attachments[0].contentType === "application/vnd.microsoft.card.hero") {
                             var be_image_carousel = event.attachments.reduce(function (c, n) {
-                                return c.content.images.length === 1 && n.content.images.length === 1 && c.content.buttons.length === 1 && n.content.buttons.length === 1;
+                                return c.content.images && n.content.images && c.content.images.length === 1 && n.content.images.length === 1 && c.content.buttons.length === 1 && n.content.buttons.length === 1;
                             });
                             if (be_image_carousel) {
                                 return {

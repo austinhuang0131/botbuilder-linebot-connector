@@ -559,23 +559,20 @@ var LineConnector = /** @class */ (function () {
                         }
                     }
                     else if (event.attachments) {
-                        event.attachments.forEach(e => {
-                            switch (e.contentType) {
-                                case "application/vnd.microsoft.keyboard":
-                                    return {
-                                        type: "template",
-                                        altText: getAltText(event.text),
-                                        template: {
-                                            type: "buttons",
-                                            // title: event.text || "",
-                                            text: "" + (event.text || ""),
-                                            actions: e.content.buttons.map(function (b) {
-                                                return getButtonTemp(b);
-                                            })
-                                        }
-                                    };
-                            }
-                        });
+                        if (event.attachments[0].contentType === "application/vnd.microsoft.keyboard") {
+                            return {
+                                type: "template",
+                                altText: getAltText(event.text),
+                                template: {
+                                    type: "buttons",
+                                    // title: event.text || "",
+                                    text: "" + (event.text || ""),
+                                    actions: event.attachments[0].content.buttons.map(function (b) {
+                                        return getButtonTemp(b);
+                                    })
+                                }
+                            };
+                        }
                     }
                     else {
                         return {

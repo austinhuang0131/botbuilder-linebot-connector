@@ -620,7 +620,7 @@ var LineConnector = /** @class */ (function () {
                                         imageSize: "cover",
                                         columns: event.attachments.map(function (a) {
                                             var c = {
-                                                title: a.content.title || "",
+                                                title: a.content.title || null,
                                                 text: a.content.text,
                                                 actions: a.content.buttons.map(function (b) {
                                                     return getButtonTemp(b);

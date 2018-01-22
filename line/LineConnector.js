@@ -341,12 +341,12 @@ var LineConnector = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log("reply", message)
                         m = LineConnector.createMessages(message);
                         body = {
                             replyToken: message[0].replyToken || replyToken,
                             messages: m
                         };
+                        console.log("reply", JSON.stringify(body));
                         return [4 /*yield*/, this.post('/message/reply', body).then()];
                     case 1:
                         res = _a.sent();
@@ -748,7 +748,7 @@ var LineConnector = /** @class */ (function () {
             }
             else if (_this.replyToken || messages[0].replyToken) {
                 var t = _this.getRenderTemplate(e);
-                console.log("send", t)
+                // console.log("send", t)
                 if (Array.isArray(t)) {
                     _this.event_cache = _this.event_cache.concat(t);
                 }

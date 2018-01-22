@@ -748,7 +748,7 @@ var LineConnector = /** @class */ (function () {
             }
             else if (_this.replyToken || messages[0].replyToken) {
                 var t = _this.getRenderTemplate(e);
-                // console.log("send", t)
+                console.log("send", t)
                 if (Array.isArray(t)) {
                     _this.event_cache = _this.event_cache.concat(t);
                 }
@@ -756,7 +756,7 @@ var LineConnector = /** @class */ (function () {
                     _this.event_cache.push(t);
                 }
                 if (_this.event_cache.length === 5) {
-                    _this.reply(_this.replyToken || messages[0].replyToken, _this.event_cache);
+                    _this.reply(messages[0].replyToken || _this.replyToken, _this.event_cache);
                     _this.replyToken = null;
                     _this.event_cache = [];
                 }

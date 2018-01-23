@@ -327,7 +327,7 @@ var LineConnector = /** @class */ (function () {
         try {
             r = fetch(this.endpoint + path, { method: 'POST', headers: this.headers, body: JSON.stringify(body) })
                 .then(b => {return b.json()})
-                .then(j => {console.log(JSON.stringify(j))});
+                .then(j => {if (j !== {}) console.error(JSON.stringify(j))});
         } catch (er) {
             console.log("er",er)
         }

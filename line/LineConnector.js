@@ -593,12 +593,12 @@ var LineConnector = /** @class */ (function () {
                         }*/
                         console.log(event);
                         if (event.attachments[0].contentType === "application/vnd.microsoft.card.hero") {
-                            var be_image_carousel = event.attachments.filter(e => {
+                            var imagecheck = event.attachments.filter(e => {
                                 return e.content.images !== undefined;
-                            }).reduce(function (c, n) {
-                                return c.content.images.length === 1 && n.content.images.length === 1 && c.content.buttons.length === 1 && n.content.buttons.length === 1;
                             });
-                            if (be_image_carousel) {
+                            if (imagecheck.length !== 0 && imagecheck.reduce(function (c, n) {
+                                return c.content.images.length === 1 && n.content.images.length === 1 && c.content.buttons.length === 1 && n.content.buttons.length === 1;
+                            })) {
                                 return {
                                     "type": "template",
                                     "altText": getAltText(event.attachments[0].content.text),

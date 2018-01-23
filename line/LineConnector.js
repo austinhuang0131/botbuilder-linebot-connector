@@ -604,7 +604,7 @@ var LineConnector = /** @class */ (function () {
                             if (imagecheck.length !== 0 && be_image) {
                                 return {
                                     "type": "template",
-                                    "altText": getAltText(event.attachments[0].content.text),
+                                    "altText": getAltText(event.attachments[0].content.text || event.attachments[0].content.title + " " + event.attachments[0].content.subtitle),
                                     "template": {
                                         "type": "image_carousel",
                                         "columns": event.attachments.map(function (a) {

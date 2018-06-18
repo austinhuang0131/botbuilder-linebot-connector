@@ -6,7 +6,9 @@
     "dev": "tsc --watch & nodemon  ./bot.js",
     "dev2": "tsc --watch & nodemon --inspect-brk=5858  ./bot.js",
     "start": "node ./bot.js",
-    "main": "index.js"
+    "main": "index.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "Q": "0.0.1",
@@ -20,7 +22,8 @@
     "q": "^1.4.1",
     "restify": "^6.3.4",
     "simplesets": "^1.2.0",
-    "ws": "^3.3.1"
+    "ws": "^3.3.1",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "@slack/client": "^3.9.0",
@@ -39,5 +42,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Wolke/botbuilder-linebot-connector.git"
-  }
+  },
+  "snyk": true
 }
